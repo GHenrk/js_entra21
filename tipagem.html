@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipagem</title>
+</head>
+<body>
+    
+
+    <script type="text/javascript">
+        
+        let inteiro = 123;
+        console.log('let inteiro é: ', typeof inteiro);
+
+        let decimal = 123.5;
+        console.log('let decimal é: ', typeof decimal);
+
+        let inteiro2 = "123";
+        console.log('let inteiro2 é: ', typeof inteiro2);
+
+        let decimal2 = '123.5';
+        console.log('let decimal2 é: ', typeof decimal2);
+
+        let string = "@!asd;:}"
+        console.log('let string é: ', typeof string);
+
+        let nulo = null;
+        console.log('let nulo é: ', typeof nulo);
+
+        let indefinido = undefined;
+        console.log('let indefinido é: ', typeof indefinido);
+
+        let vetor = [];
+        console.log('let vetor é: ', typeof vetor);
+        let vetor2 = [1,5];
+        console.log('let vetor2 é: ', typeof vetor2);
+
+        let objeto = {};
+        console.log('let objeto é: ', typeof objeto);
+
+        let meuObjeto = {
+            nome: "Gustavo",
+            sobrenome: "Henrique"
+        };
+        console.log("A Propriedade nome do meu Objeto contém: ", meuObjeto.nome);
+        console.log(`A Propriedade nome do meu Objeto contém: ${meuObjeto.nome}`);
+        let notAnumber = NaN;
+        console.log('let notAnumber é: ', typeof notAnumber);
+
+        let data = new Date();
+        console.log('let data é: ', typeof data);
+
+        inteiro2 = Number(inteiro2);
+        console.log("inteiro 2 agora é: ", typeof inteiro2);
+
+        //Nao se converte objeto para numero, nem nulo.
+        // numero converte em string, stringo em numero.
+
+        let booleano = false;
+        console.log('let booleano é: ', typeof booleano);
+        console.log(Boolean(1)); // convertendo para boleano: zero,string vazia, null, NaN é falso, qualquer outro valor é verdadeiro;
+
+        
+
+        data = Number('batata');
+        console.log(typeof data, data);
+
+        /* OPERADORES RELACIONAS
+        === Verifica se o valor e tipo são iguais
+        !-- verifica seo valor e tipo são diferentes
+        == verifica se o valor é igual
+        != verifica seo  valor é diferente
+        > verifica se o elemento da esquerda é maior do que o da direita
+        >= verifica se o elemento da esquerda é maior ou igual do que o da direita
+        , verifica se o elemento da esquerda é menro do que o da direita
+        <= verifica se o elemento da esquerda é menor ou igual do que o da direite
+
+        */
+
+        let teste1 = 123;
+
+        console.log(typeof teste1 == "number");
+        if (typeof Number(teste1) === "number"){
+            console.log("É um numero");
+        } else {
+            console.log("Não é um numero");
+        }
+
+        let numeroTeste = '1'
+        let numeroTeste2 = 1
+        console.log(numeroTeste + numeroTeste2);
+    </script>
+</body>
+</html>
