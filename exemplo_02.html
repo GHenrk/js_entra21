@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 02</title>
+</head>
+<body onload="paginaCarregada()">
+    <header id="cabecalho" onmouseover="efeitoNoHeader(this)"
+            onmouseleave="efeitoNoHeaderNormal(this)">
+        <h1 onclick="clickNoCabecalho()">Cabeçalho</h1>
+    </header>
+    <aside>
+        <button id="btn" type="button" onclick="trocar_cabecalho()">Trocar Cabeçalho</button>
+        <button id="btn_reset" type="button" onclick="reseta_contador()">Reseta Contador</button>
+        <button id="btn_loop" type="button" onclick="iniciar_loop()">Iniciar Loop</button>
+        <h2>corpo</h2>
+    </aside>
+    <footer>
+        <h1>rodape</h1>
+    </footer>
+
+    <script type="text/javascript">
+        let contador = 0;
+        let botao = document.getElementById("btn");
+        let cabecalho = document.getElementById("cabecalho");
+
+        const trocar_cabecalho = () => {
+            contador = contador + 1;
+            cabecalho.innerHTML=`<h1>O Texto mudou ${contador}</h1>`;
+            if (contador == 10) {
+                cabecalho.innerHTML=`<h1>Você já alterou ${contador} vezes</h1>`;
+                botao.disabled = true;
+            }
+        }
+        
+        const reseta_contador = () => {
+            contador = 0;
+            botao.disabled = false;
+            cabecalho.innerHTML=`<h1>Agora o contador é ${contador}</h1>`;
+
+        }
+
+        const iniciar_loop = () => {
+            cabecalho.innerHTML= ""
+            let repeticao;
+            for (i=0;i<=10;i++){
+                cabecalho = cabecalho + repeticao;
+                repeticao = cabecalho.innerHTML=`<h1>Essa é a repetição de numero ${i}</h1><br>`;
+                
+            }
+        }
+
+        const paginaCarregada = () => {
+            //alert('A Pagina carregou')
+        }
+
+
+        const clickNoCabecalho = function () {
+            alert('Você clicou no cabeçalho');
+        }
+        const efeitoNoHeaderNormal = (element) => {
+            //element.style.color="#000000";
+            //element.style.fontSize="20px";
+            //element.style.textAlign="left";
+            //element.innerHTML="<h1>Mouse Saiu!</h1>";
+            //element.style.transition="1s";
+            //element.style.transform="rotate(-360deg)";
+
+        }
+        const efeitoNoHeader = (element) => {
+            //element.style.transition="1s";
+            //element.style.transform="rotate(360deg)";
+            //console.log(element);
+            //innerText é usado apenas para alterar o texto que está dentro;
+            //element.innerText="Mouse entrou e girou";
+            //element.innerHTML="<h1>Mouse entrou e girou</h1>";
+            //element.style.color="#01ab67" ;
+            //element.style.display="inline-block";
+            //element.style.fontSize="50px";
+            //element.style.textAlign="center";
+            
+        }
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iteração HTML</title>
+
+    <style>
+        .titulo-alterado {
+            color: red;
+        }
+        .titulo-verde {
+            color: green;
+        }        
+    </style>
+</head>
+<body>
+
+    <h1 class="titulo-principal">Boa noite</h1>
+    <button id="btn">Altere aqui</button>
+    <button id="btn2">Altera pra verde</button>
+    <script type="text/javascript">
+        //criar variaveis
+        var variavel_01 = 123;
+        let variavel_02 = "texto";
+        const PI = 3.14;
+
+        //verificar o tipo de uma variável utilizando o typeof
+
+        console.log(typeof variavel_01);
+        console.error(typeof PI);
+        console.warn(typeof variavel_02);
+        let botao = document.getElementById("btn");
+        let texto = document.querySelector(".titulo-principal");
+        botao.onclick = function () {
+            texto.classList.remove("titulo-verde")
+            texto.classList.toggle("titulo-alterado");
+        }
+        let botao2 = document.getElementById("btn2");
+        botao2.onclick = () => {
+            texto.classList.add("titulo-verde");
+        }
+
+</script>
+    
+</body>
+</html>
