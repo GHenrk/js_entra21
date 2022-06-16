@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+    <link rel="stylesheet" href="css/loops.css">
+</head>
+<body>
+    <!-- Cria a lista -->
+    <ul id="lista">
+
+    </ul>
+    <button type="button" onclick="addItem()">Adicioar Item</button>
+
+    <script type="text/javascript">
+        //chama a lista pelo ID;
+        const ulLista = document.getElementById("lista");
+        
+        //cria a função que o botão esta chamando;
+        const addItem = ()  => {
+            //Abre um prompt e guarda o valor digitado na variavel valor;
+            //Garante que esse valor se torna um Number();
+            const valor = Number(prompt('Você quer visualizar a tabuada de qual numero?'));
+
+            //loop
+            let j=1
+            while (j<=10){
+                ulLista.innerHTML += `<h1>Tabuada do Número ${j}</h1>`;
+                for (let i=0;i<=10;i++) {
+
+                    let valorNovo = j * i;
+                    ulLista.innerHTML += `<li>${j} X ${i} = ${valorNovo}</li>`;
+                }
+                ulLista.innerHTML += "<br>";
+                j++;
+                }
+    
+            };
+
+
+    </script>
+    
+</body>
+</html>

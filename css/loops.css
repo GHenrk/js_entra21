@@ -1,0 +1,19 @@
+body {
+    background-color: black;
+}
+
+h1 {
+    color:#fff;
+}
+ul {
+    width:25%;
+    margin: 0 auto;
+    text-align: center;
+    
+}
+
+li {
+
+    align-self:  baseline;
+    color: #fff;
+}
