@@ -1,0 +1,41 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:1em;
+    width: 50vw;
+    margin: 0 auto;
+    padding:5em 0;
+}
+
+input {
+    border: none;
+    padding:0.5em;
+    border-radius:5px;
+}
+
+label {
+    font-size: 1.5em;
+}
+.botao__login {
+    border: none;
+    width:10em;
+    border-radius: 0.5em;
+    background-color: #000000;
+    color: #fff;
+    box-shadow:0px 0px 10px green;
+}
+
+a {
+    padding-right: 0.5em;
+}
+
+.secao__login {
+
+    width:50vw;
+    margin: 10% auto;
+    background-color: #B0C4DE;
+    border-radius:50px;
+    box-shadow: 0px 0px 30px #000000;
+}
