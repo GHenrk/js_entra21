@@ -1,6 +1,10 @@
+body {
+    background-color: #B0C4DE;
+}
+
 h1, h2 {
     text-align: center;
-    color:red;
+    color: #000000;
 }
 
 header {
@@ -18,4 +22,75 @@ header {
     background-color: #000000;
     color: #fff;
     box-shadow:0px 0px 10px green
+}
+
+form {
+    text-align: center;
+}
+
+
+ul {
+    width:80%;
+    margin: 2em auto 0 auto;
+    display: flex;
+    justify-content: space-around;
+    gap:2em;
+    flex-grow: 0;
+    transition: 1s;
+}
+
+li {
+    list-style-type: none;
+}
+
+
+.item--list {
+    width:25%;
+    background-color: #cccc;
+    border-radius: 15px;
+    padding:0.5em;
+    text-align: center;
+    transition: 1s;
+}
+
+.item--list:hover {
+    box-shadow: 5px 5px 30px aqua;
+    transform: scale(1.02)
+}
+.img--produto {
+    width:80%;
+    height:15em;
+}
+
+.preco {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.listaOpcoes {
+    padding:1em;
+}
+
+.botao {
+    background-color: #000000;
+    color:#fff;
+    border: none;
+    width:10em;
+    padding:1em;
+    transition: 0.5s;
+}
+
+.btn__filtro--ativo {
+    background-color: #00008B;
+    transition: 0.5s;
+    
+}
+
+.media-precos {
+    width:15em;
+    margin: 1.5em auto;
+    padding:0.5em;
+    text-align: center;
+    background-color: #cccc;
+    border-radius: 15px;
 }
