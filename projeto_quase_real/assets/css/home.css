@@ -80,6 +80,10 @@ li {
     transition: 0.5s;
 }
 
+.botao:hover {
+    background-color: #00008B;
+}
+
 .btn__filtro--ativo {
     background-color: #00008B;
     transition: 0.5s;

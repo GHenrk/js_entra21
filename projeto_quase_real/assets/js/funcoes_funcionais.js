@@ -40,6 +40,8 @@ const vetorProduto = [
 let cotacaoDolar = 5.43;
 let cotacaoEuro = 5.53;
 
+let vetorConvertido = vetorProduto;
+
 const filtroMaiorQue100 = (elemento)  => {
    return elemento.preco > 100;
 }
@@ -69,21 +71,21 @@ console.log("filter", produtoEmEstoque);
 const converterDolar = (elemento) => {
     const newElemento = {...elemento};
     newElemento.preco = newElemento.preco / cotacaoDolar;
-    newElemento.preco = newElemento.preco.toFixed(2);
+    //newElemento.preco = newElemento.preco.toFixed(2);
     return newElemento;
 }
 
 const converterEuro = (elemento) => {
     const newElemento = {...elemento};
     newElemento.preco = newElemento.preco / cotacaoEuro;
-    newElemento.preco = newElemento.preco.toFixed(2);
+    //newElemento.preco = newElemento.preco.toFixed(2);
     return newElemento;
 }
 
 const converterReal = (elemento) => {
     const newElemento = {...elemento};
     newElemento.preco = newElemento.preco
-    newElemento.preco = newElemento.preco.toFixed(2);
+    //newElemento.preco = newElemento.preco.toFixed(2);
     return newElemento;
 
 }
@@ -140,7 +142,7 @@ const mostraProdutos = (vetor) => {
         <h1>${elemento.produto}</h1>
         <img class="img--produto" src="${elemento.img}">
         <p class="descricao">${elemento.descricao}</p>
-        <p class="preco">${siglaDaMoeda}${elemento.preco}</p></li>`
+        <p class="preco">${siglaDaMoeda}${elemento.preco.toFixed(2)}</p></li>`
         listaItens.innerHTML += liProduto;
     }
 }
@@ -160,7 +162,7 @@ let estadoBotaoFiltro = false;
 btn_filtrar.onclick = () => {
     estadoBotaoFiltro = !estadoBotaoFiltro;
     if (estadoBotaoFiltro) {
-    const vetorFiltrado = vetorProduto.filter(filtros[listaOpcoes.value]);
+    const vetorFiltrado = vetorConvertido.filter(filtros[listaOpcoes.value]);
     mostraProdutos(vetorFiltrado);
     btn_filtrar.classList.add("btn__filtro--ativo");
     btn_filtrar.innerText = "Remover Filtro";
@@ -169,7 +171,7 @@ btn_filtrar.onclick = () => {
         listaOpcoes.disabled = false;
         btn_filtrar.innerText= "Filtrar";
         btn_filtrar.classList.remove("btn__filtro--ativo");
-        mostraProdutos(vetorProduto);
+        mostraProdutos(vetorConvertido);
     }
 }
 
@@ -193,17 +195,9 @@ const transformaMostrador = () => {
     }
 }
 
-let estadoBotaoConverter = false;
 
 btn_converter.onclick = () => {
-    estadoBotaoConverter = !estadoBotaoConverter;
-    if (estadoBotaoConverter) {
-    const vetorConvertido = vetorProduto.map(filtrosDeConversao[opcoesDeMoeda.value]);
+    vetorConvertido = vetorProduto.map(filtrosDeConversao[opcoesDeMoeda.value]);
     transformaMostrador();
     mostraProdutos(vetorConvertido);
-    btn_filtrar.classList.add("btn__filtro--ativo");
-    } else {
-        btn_filtrar.classList.remove("btn__filtro--ativo");
-        mostraProdutos(vetorProduto);
-    }
-}
+    }; 
