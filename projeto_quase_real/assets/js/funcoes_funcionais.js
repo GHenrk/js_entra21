@@ -39,15 +39,16 @@ const vetorProduto = [
 //Reduce faz uma média de preço de todos os elementos.
 let cotacaoDolar = 5.43;
 let cotacaoEuro = 5.53;
+let valorReferencia = 100;
 
 let vetorConvertido = vetorProduto;
 
 const filtroMaiorQue100 = (elemento)  => {
-   return elemento.preco > 100;
+   return elemento.preco > valorReferencia;
 }
 
 const filtroMenorQue100 = (elemento)  => {
-    return elemento.preco < 100;
+    return elemento.preco < valorReferencia;
  }
 
 
@@ -188,10 +189,13 @@ const transformaMostrador = () => {
     const sigla = opcoesDeMoeda.value;
     if (sigla == "real") {
         siglaDaMoeda = "R$";
+        valorReferencia = 100;
     } else if (sigla == "dolar") {
         siglaDaMoeda = "$";
+        valorReferencia = 100 / cotacaoDolar;
     } else if(sigla == "euro") {
         siglaDaMoeda = "€";
+        valorReferencia = 100 / cotacaoEuro;
     }
 }
 
