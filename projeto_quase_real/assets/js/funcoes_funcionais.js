@@ -26,7 +26,7 @@ const vetorProduto = [
         "descricao": "Lorem ipusum! Not ipusum",
         "em_stoque": true,
         "img": "../assets/imgs/produto04.jpg"
-    } 
+    }     
 ];
 
 //Filter, map, reduce.
@@ -40,6 +40,7 @@ const vetorProduto = [
 let cotacaoDolar = 5.43;
 let cotacaoEuro = 5.53;
 let valorReferencia = 100;
+let siglaDaMoeda = "R$";
 
 let vetorConvertido = vetorProduto;
 
@@ -62,14 +63,16 @@ const mostraTodos = (elemento) => {
 
 const maiorQue100 = vetorProduto.filter(filtroMaiorQue100);
 
-console.log("filter ", maiorQue100);
+//console.log("filter ", maiorQue100);
 
 const produtoEmEstoque = vetorProduto.filter(emEstoque);
 
-console.log("filter", produtoEmEstoque);
+//console.log("filter", produtoEmEstoque);
 //Map utilizado para transformar um valor em outro de todos os itens;
 
 const converterDolar = (elemento) => {
+    siglaDaMoeda = "$";
+    valorReferencia = 100/cotacaoDolar;
     const newElemento = {...elemento};
     newElemento.preco = newElemento.preco / cotacaoDolar;
     //newElemento.preco = newElemento.preco.toFixed(2);
@@ -77,6 +80,8 @@ const converterDolar = (elemento) => {
 }
 
 const converterEuro = (elemento) => {
+    siglaDaMoeda = "€";
+    valorReferencia = 100/cotacaoEuro;
     const newElemento = {...elemento};
     newElemento.preco = newElemento.preco / cotacaoEuro;
     //newElemento.preco = newElemento.preco.toFixed(2);
@@ -84,6 +89,8 @@ const converterEuro = (elemento) => {
 }
 
 const converterReal = (elemento) => {
+    siglaDaMoeda = "R$";
+    valorReferencia = 100;
     const newElemento = {...elemento};
     newElemento.preco = newElemento.preco
     //newElemento.preco = newElemento.preco.toFixed(2);
@@ -93,7 +100,7 @@ const converterReal = (elemento) => {
 
 const produtosEmDolar = vetorProduto.map(converterDolar);
 
-console.log("map" , produtosEmDolar);
+//console.log("map" , produtosEmDolar);
 
 const retornaNome = (elemento) => {
     let nomePreco = "O Nome do produto é " + elemento.produto + " e seu valor é R$" + elemento.preco; 
@@ -102,7 +109,7 @@ const retornaNome = (elemento) => {
 
 const nomeComPreco = vetorProduto.map(retornaNome);
 
-console.log("map", nomeComPreco);
+//console.log("map", nomeComPreco);
 
 //REDUCE - Faz um calcula com todos os elementos retorna um unico valor;
 
@@ -115,8 +122,8 @@ const soma_preco = vetorProduto.reduce(somaPrecos, 0);
 
 const media_preco = soma_preco / vetorProduto.length;
 
-console.log('reduce somando: ', soma_preco.toFixed(2));
-console.log('reduce somando e dividindo pelo length:', media_preco.toFixed(2));
+//console.log('reduce somando: ', soma_preco.toFixed(2));
+//console.log('reduce somando e dividindo pelo length:', media_preco.toFixed(2));
 
 
 
@@ -130,7 +137,7 @@ const listaOpcoes = document.getElementById('opcoes');
 const mediaPrecos = document.getElementById('media-precos');
 const opcoesDeMoeda = document.getElementById('opcoesDeMoeda');
 const btn_converter = document.getElementById('btn_converter');
-let siglaDaMoeda = "R$";
+
 
 const mostraProdutos = (vetor) => {
     mediaPrecos.innerText= "";
@@ -184,8 +191,8 @@ const filtrosDeConversao = {
     "euro": converterEuro
 }
 
-
-const transformaMostrador = () => {
+//Função que não precisa mais;
+/* const transformaMostrador = () => {
     const sigla = opcoesDeMoeda.value;
     if (sigla == "real") {
         siglaDaMoeda = "R$";
@@ -197,11 +204,11 @@ const transformaMostrador = () => {
         siglaDaMoeda = "€";
         valorReferencia = 100 / cotacaoEuro;
     }
-}
+}*/ 
 
 
 btn_converter.onclick = () => {
     vetorConvertido = vetorProduto.map(filtrosDeConversao[opcoesDeMoeda.value]);
-    transformaMostrador();
+    //transformaMostrador();
     mostraProdutos(vetorConvertido);
     }; 

@@ -4,20 +4,20 @@
         "preco": 3.65,
         "descricao": "Lorem ipusum",
         "em_stoque": true,
-        "img": "assets/imgs/img001.jpg"
+        "img": "../assets/imgs/produto01.jpg"
     },
     {
         "produto": "produto 02",
         "preco": 100.00,
         "descricao": "Lorem ipusum! Not ipusum",
         "em_stoque": false,
-        "img": "assets/imgs/img002.jpg"
+        "img": "../assets/imgs/produto01.jpg"
     },
     {
         "produto": "produto 03",
         "preco": 95.90,
         "descricao": "Lorem ipusum! Not ipusum",
         "em_stoque": true,
-        "img": "assets/imgs/img003.jpg"
+        "img": "../assets/imgs/produto01.jpg"
     } 
 ]
