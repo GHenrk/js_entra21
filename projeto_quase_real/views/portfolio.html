@@ -4,19 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha página de códigos</title>
+    <title>HomePage || GitHubApi</title>
 
     <style>
         .foto--perfil {
             border-radius: 50%;
             box-shadow: 0px 0px 30px aqua;
         }
+        .foto--seguidor {
+            width:5em;
+            border-radius: 50%;
+        }
+
+        .name--seguidor {
+            color: black;
+            text-shadow: 1px 1px 0px pink;
+        }
+        .listaSeguidores, .listaSeguindo {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border: 2px solid black;
+            list-style: none;
+        }
     </style>
 </head>
 <body>
-    <div>
+    <header>
+        <h1 class="nomePerfil" id="nome"></h1>
         <img class="foto--perfil" src="" alt="" id="foto">
-    </div>
+    </header>
+    <section class="followers">
+        <h3>Followers:</h3>
+        <ul class="listaSeguidores" id="followers">
+
+        </ul>
+    </section>
+    <section class="following">
+        <h3>Following:</h3>
+        <ul class="listaSeguindo" id="following">
+
+        </ul>
+    </section>
+
+
 
     <script type="text/javascript" src="../assets/js/api_github.js"></script>
 </body>

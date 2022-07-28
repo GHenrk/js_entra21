@@ -4,6 +4,7 @@ fetch('../json/hobbies.json')
     .then(data => {
         produtos = data;
         mostraProdutos(produtos);
+        
     })
     .catch( error => { // Para status de Erro;
         console.error("Algo deu errado na requisição", error);
