@@ -1,0 +1,190 @@
+body {
+  background-color: #373535;
+}
+.sobre {
+  width: 80%;
+  padding: 5em 10vw;
+  margin: 0 auto;
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 10em 10em;
+  grid-template-rows: 1fr 5em;
+  background-color: var(--corHeader);
+  box-sizing: border-box;
+  border-radius: 25px;
+}
+
+.imgSobre {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  text-align: center;
+}
+
+.foto--perfil {
+  width: 15em;
+  height: 15em;
+  border-radius: 50%;
+  box-shadow: 0px 0px 30px #a9a8a8;
+}
+
+.userBio {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userLocation {
+  grid-column: 1;
+  grid-row: 2;
+  text-align: center;
+  color: black;
+  background-color: #a9a8a8;
+  padding: 2em 0;
+  border-radius: 15px;
+}
+
+.following {
+  padding: 1em 0;
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  text-align: center;
+}
+
+.followers {
+  padding: 1em 0;
+  grid-column: 4;
+  grid-row: 1 / span 2;
+  text-align: center;
+}
+
+.titulo-seguir {
+  color: whitesmoke;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 0.5em 0;
+  background-color: var(--corHeader);
+  border: 1px solid #a9a8a8;
+}
+
+.lista {
+  background-color: var(--corHeader);
+  border: 1px solid #a9a8a8;
+}
+
+.listaSeguindo,
+.listaSeguidores {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  gap: 1em;
+  padding: 2em 0;
+}
+.listaSeguindo li,
+.listaSeguidores li {
+  background-color: black;
+  box-shadow: 0px 0px 5px blue;
+  border: 1px solid black;
+  text-align: center;
+  padding: 0.5em;
+}
+
+.foto--seguidor {
+  width: 3em;
+  border-radius: 50%;
+}
+
+.projetos {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 2em;
+
+  background-color: var(--corHeader);
+  box-sizing: border-box;
+  border-radius: 25px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.listaProjetos {
+  width: 80%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.projetoCard {
+  width: 100%;
+  display: grid;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 4em 5em 4em 1fr;
+  background-color: #a9a8a8;
+
+  margin: 2em;
+  border-radius: 25px;
+}
+
+.projectName {
+  grid-column: 1;
+  grid-row: 1;
+
+  background-color: #373535;
+  text-align: center;
+  padding: 1.2em 0;
+  color: white;
+}
+.projectNameDev {
+  grid-column: 2;
+  grid-row: 1;
+
+  background-color: #373535;
+  text-align: center;
+  padding: 1.5em 0;
+  color: white;
+  box-sizing: border-box;
+}
+
+.projectDescription {
+  grid-column: 1;
+  grid-row: 2;
+  padding: 1em 0;
+
+  text-align: center;
+}
+
+.projectLanguage {
+  grid-column: 2;
+  grid-row: 2;
+  padding: 1em 0;
+  text-align: center;
+}
+
+.projectDeploy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.linkDeploy {
+  grid-column: 1 / span 2;
+  grid-row: 3;
+  display: flex;
+  justify-content: center;
+}
+.windowProject {
+  grid-column: 1 / span 2;
+  grid-row: 4;
+  margin: 0 auto;
+  width: 50vw;
+  height: 25vw;
+}

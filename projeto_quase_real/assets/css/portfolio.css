@@ -1,0 +1,71 @@
+:root {
+  --corHeader: #171515;
+}
+
+body {
+  overflow: scroll;
+}
+
+.conteudo-page {
+  display: none;
+}
+.nomePerfil {
+  font-size: 1.5em;
+  color: #a9a8a8;
+}
+
+.cabecalho {
+  background-color: var(--corHeader);
+  width: 100vw;
+  height: 3em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btnSair {
+  background-color: black;
+  width: 5em;
+  color: white;
+  border: none;
+}
+
+.name--seguidor {
+  color: black;
+  text-shadow: 1px 1px 0px pink;
+}
+
+.shake-vertical {
+  animation: shake-vertical 5s cubic-bezier(0.165, 0.84, 0.44, 1) infinite both;
+}
+.loadingDiv {
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 100vw;
+  height: 100vw;
+}
+
+@keyframes shake-vertical {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    transform: translateY(-8px);
+  }
+  20%,
+  40%,
+  60% {
+    transform: translateY(8px);
+  }
+  80% {
+    transform: translateY(6.4px);
+  }
+  90% {
+    transform: translateY(-6.4px);
+  }
+}

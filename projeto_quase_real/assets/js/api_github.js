@@ -1,23 +1,10 @@
-//exibir_load(true);
-
-// const exibirLoad = (load, errorMsg) => {
-//   let body = document.body;
-//   if (load == true) {
-//     //displayLoad.classList.remove("escondeLoading");
-//     //displayLoad.innerHTML = errorMsgg
-//     body.innerHTML = `Loading...`;
-//   }
-//   if (load == false) {
-//     //displayLoad.classList.remove("escondeLoading");
-//     //displayLoad.innerHTML = errorMsg;
-//   }
-// };
-
+//mostraFoto
 function renderiza_foto(foto) {
   const img_foto = document.getElementById("foto");
   img_foto.src = `${foto}`;
 }
 
+//mostraNome
 function mostraNome(nome) {
   const elementoH1 = document.getElementById("nome");
   elementoH1.innerText = nome;
@@ -33,7 +20,7 @@ function mostraBioLocal(bio, local) {
   }
 
   let elementoLocal = `Location: ${local}`;
-  if (elementoLocal == "null" && elementoBio != " ") {
+  if (local != "null" && local != " ") {
     console.log(elementoLocal);
     userLocation.innerText = elementoLocal;
   }
@@ -44,9 +31,9 @@ function mostraFollowers(followers) {
   let maximo5 = followers.length > 5 ? 5 : followers.length;
   for (let i = 0; i < maximo5; i++) {
     let listItem = `<li>`;
-    let seguidorNome = `<p class="name--seguidor">${followers[i].login}</p>`;
+    //let seguidorNome = `<p class="name--seguidor">${followers[i].login}</p>`;
     let seguidorFoto = `<a href="${followers[i].html_url}" target="_blank"><img class="foto--seguidor" src="${followers[i].avatar_url}"></a>`;
-    listItem += seguidorNome + seguidorFoto + `</li>`;
+    listItem += seguidorFoto + `</li>`;
     listaSeguidores.innerHTML += listItem;
   }
 }
@@ -56,9 +43,9 @@ function mostraFollowing(following) {
   let maximo5 = following.length > 5 ? 5 : following.length;
   for (let i = 0; i < maximo5; i++) {
     let listItem = `<li>`;
-    let seguindoNome = `<p class="name--seguidor">${following[i].login}</p>`;
+    //let seguindoNome = `<p class="name--seguidor">${following[i].login}</p>`;
     let seguindoFoto = `<a href="${following[i].html_url}" target="_blank"><img class="foto--seguidor" src="${following[i].avatar_url}"></a>`;
-    listItem += seguindoNome + seguindoFoto + `</li>`;
+    listItem += seguindoFoto + `</li>`;
     listaSeguindo.innerHTML += listItem;
   }
 }
@@ -82,10 +69,10 @@ function mostraProjects(repos) {
     //verificaSeDescricaoVazio
     let verificaDescription =
       elemento.description == null ? " " : elemento.description;
-    let elementoNome = `<li><a href="${elemento.html_url}" target="_blank"<p class="projectName">${elemento.name}</p></a>`;
+    let elementoNome = `<li class="projetoCard"><a href="${elemento.html_url}" target="_blank"<p class="projectName">${elemento.name}</p></a>`;
     let elementoNomeOwner = `<a href="${nomeDev.html_url}"><p class="projectNameDev">Desenvolvido por: ${nomeDev.login}</p></a>`;
     let elementoDescription = `<p class="projectDescription">${verificaDescription}</p><p class="projectLanguage">Linguagem mais utilizada:${elemento.language}</p>`;
-    let elementoProjeto = `<a href="${elemento.homepage}" target="_blank"><p class="projectDeploy">Vizualize o Projeto Online</p></a>`;
+    let elementoProjeto = `<a href="${elemento.homepage}" class="linkDeploy" target="_blank"><p class="projectDeploy">Vizualize o Projeto Online</p></a>`;
     let elementoIframe = `<iframe src="${elemento.homepage}" class="windowProject"></li>`;
 
     let elementoTotal =
@@ -98,28 +85,32 @@ function mostraProjects(repos) {
   }
 }
 
-let exibirLoad = true;
-function refreshBody() {}
-
-const verificaStatus = (response) => {
+const verificaStatus = (status, ok) => {
   let elementoLoad = document.getElementById("loadingDiv");
-  if (response.status == 200) {
-    elementoLoad.classList.add("pageOk");
-    clearInterval(verificaResponse);
+  let pageToda = document.getElementById("conteudo-page");
+  if (status == 200) {
+    elementoLoad.style.display = "none";
+    pageToda.style.display = "block";
+    //clearInterval(verificaResponse);
   }
-  if (response.ok == true && response.status != 200) {
-  }
-  if (response.ok == false) {
-    document.body.innerHTML = "<h1>Algo de errado aconteceu!!!</h1>";
-    clearInterval(verificaResponse);
+  if (ok == false) {
+    elementoLoad.style.display = "block";
+    elementoLoad.innerHTML = `<h1>Algo de errado aconteceu!!! ERROR-CODE: ${status} </h1>`;
+    pageToda.style.display = "none";
+    //clearInterval(verificaResponse);
   }
 };
-
 const verificaResponse = (response) => {
-  setInterval(verificaStatus(response), 100);
+  //setInterval(verificaStatus(response.status, response.ok), 100);
+  verificaStatus(response.status, response.ok);
 };
 
-const recebePerfil = fetch("https://api.github.com/users/ghenrk")
+const apresentaErro = () => {
+  let elementoErro = document.getElementById("loadingText");
+  elementoErro.innerHTML = `<h1>Algo deu errado na requisição, por favor tente novamente!!!</h1>`;
+};
+
+const recebePerfil = fetch("https://api.github.com/users/GHenrk")
   .then((response) => {
     console.log(response.ok);
     console.log(response.status);
@@ -133,43 +124,52 @@ const recebePerfil = fetch("https://api.github.com/users/ghenrk")
     mostraBioLocal(data.bio, data.location);
   })
   .catch((error) => {
-    // Para status de Erro;
-    console.error("Algo deu errado na requisição", error);
+    apresentaErro();
+    console.error("ERROR: " + error);
   })
-  .finally((finalizar) => {
-    //exibir_load(false);
-    //console.warn("Sempre cai aqui");
-  });
+  .finally((finalizar) => {});
 
 const recebeSeguidor = fetch("https://api.github.com/users/GHenrk/followers")
-  .then((response) => response.json())
+  .then((response) => {
+    verificaResponse(response);
+    return response.json();
+  })
   .then((followers) => {
     //console.log(followers)
     mostraFollowers(followers);
   })
   .catch((error) => {
-    console.error("Algo deu errado na requisição", error);
+    apresentaErro();
+    console.error("ERROR: " + error);
   })
   .finally((finalizar) => {});
 
 const recebeSeguindo = fetch("https://api.github.com/users/GHenrk/following")
-  .then((response) => response.json())
+  .then((response) => {
+    verificaResponse(response);
+    return response.json();
+  })
   .then((following) => {
     mostraFollowing(following);
   })
   .catch((error) => {
-    console.error("Algo deu errado na requisição", error);
+    apresentaErro();
+    console.error("ERROR: " + error);
   })
   .finally((finalizar) => {});
 
 const recebeRepos = fetch("https://api.github.com/users/GHenrk/repos")
-  .then((response) => response.json())
+  .then((response) => {
+    verificaResponse(response);
+    return response.json();
+  })
   .then((repos) => {
     //console.log(repos);
     mostraProjects(repos);
   })
   .catch((error) => {
-    console.error("Algo deu errado na sua requisição");
+    apresentaErro();
+    console.error("ERROR: " + error);
   })
   .finally();
-clearInterval(verificaResponse);
+// clearInterval(verificaResponse);

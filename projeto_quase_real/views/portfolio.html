@@ -5,106 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HomePage || GitHubApi</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/portfolio.css">
+    <link rel="stylesheet" href="../assets/css/sobre.css">
 
-    <style>
-      body {
-        overflow: hidden;
-      }
-      .foto--perfil {
-        border-radius: 50%;
-        box-shadow: 0px 0px 30px aqua;
-      }
-      .foto--seguidor {
-        width: 5em;
-        border-radius: 50%;
-      }
-
-      .name--seguidor {
-        color: black;
-        text-shadow: 1px 1px 0px pink;
-      }
-      .listaSeguidores,
-      .listaSeguindo {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        border: 2px solid black;
-        list-style: none;
-      }
-
-      .shake-vertical {
-        animation: shake-vertical 5s cubic-bezier(0.165, 0.84, 0.44, 1) infinite
-          both;
-      }
-      .loadingDiv {
-        background-color: black;
-        color: white;
-        text-align: center;
-        width:100vw;
-        height: 100vw;
-        
-      }
-
-      .pageOk {
-        display: none;
-      }
-
-      @keyframes shake-vertical {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        10%,
-        30%,
-        50%,
-        70% {
-          transform: translateY(-8px);
-        }
-        20%,
-        40%,
-        60% {
-          transform: translateY(8px);
-        }
-        80% {
-          transform: translateY(6.4px);
-        }
-        90% {
-          transform: translateY(-6.4px);
-        }
-      
-      }
-      
-    </style>
   </head>
-  <body>
+  <body >
     <div class="loadingDiv" id="loadingDiv">
-      <h1>loading...</h1>
+      <h1>Loading...</h1>
     </div>
-    <header>
-      <h1 class="nomePerfil" id="nome"></h1>
-      <!-- botao sair -->
+    <div class="conteudo-page" id="conteudo-page">
+    <header class="cabecalho">
+      <h1 class="nomePerfil" id="nome">Gustavo Henrique Dias</h1>
+      <button class="btnSair" id="btnSair">Sair</button>
       <!-- talvez um nav ? -->
     </header>
-    <div class="sobre">
-      <div class="imgSobre">
-      <img src="" class="foto--perfil" id="foto" />
-      <p class="userBio" id="userBio"></p>
-      <p class="userLocation" id="userLocation"></p>
-      </div>
+    <section class="sobre">
+    <div class="imgSobre">
+        <img src="../assets/imgs/perfil2.jpg" class="foto--perfil" id="foto" />
+    </div>
+      <p class="userBio" id="userBio">Lorem ipsum dolor sit amet provident praesentium!</p>
+      <p class="userLocation" id="userLocation">Location: Brazil</p>
+      
       <div class="following">
-        <h3>Following:</h3>
-        <ul class="listaSeguindo" id="following"></ul>
+        <h3 class="titulo-seguir">Following:</h3>
+        <ul class="listaSeguindo lista" id="following"></ul>
       </div>
       <div class="followers">
-        <h3>Followers:</h3>
-        <ul class="listaSeguidores" id="followers"></ul>
+        <h3 class="titulo-seguir">Followers:</h3>
+        <ul class="listaSeguidores lista" id="followers"></ul>
       </div>
-      <div class="projetos">
-        <h3>My Projects:</h3>
-        <ul class="listaProjetos" id="projects"></ul>
-      </div>
+      
     </section>
-
+  <section class="projetos">
+    <h3>My Projects:</h3>
+    <ul class="listaProjetos" id="projects"></ul>
+  </section>
+</section>
     <script type="text/javascript" src="../assets/js/api_github.js"></script>
   </body>
 
