@@ -20,8 +20,8 @@ function mostraBioLocal(bio, local) {
   }
 
   let elementoLocal = `Location: ${local}`;
-  if (local != "null" && local != " ") {
-    console.log(elementoLocal);
+  if (local != null && local != " ") {
+    //console.log(elementoLocal);
     userLocation.innerText = elementoLocal;
   }
 }
